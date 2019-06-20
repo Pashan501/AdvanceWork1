@@ -8,23 +8,25 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
-import javax.swing.JScrollBar;
-import javax.swing.JTextPane;
+
 import java.awt.Font;
+import java.awt.Color;
 import javax.swing.JTextArea;
-import javax.swing.JCheckBox;
 
 public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
-	private JCheckBox chckbxNewCheckBox_1,chckbxNewCheckBox_2,chckbxNewCheckBox;
+	
 	
 	/**
 	 * Launch the application.
@@ -46,12 +48,19 @@ public class MainFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrame() {
+		
+		
+		
+		setForeground(Color.GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 707, 383);
+		setBounds(100, 100, 977, 395);
 		contentPane = new JPanel();
+		contentPane.setForeground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		
 		
 		JLabel lblPudge_1 = new JLabel("Pudge");
 		lblPudge_1.setFont(new Font("Times New Roman", Font.BOLD, 21));
@@ -71,7 +80,7 @@ public class MainFrame extends JFrame {
 		contentPane.add(label_2);
 		
 		
-		
+		Date date = new Date();
 		
 		JLabel lblPudge = new JLabel("PUDGE");
 		lblPudge.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
@@ -102,8 +111,33 @@ public class MainFrame extends JFrame {
 
 		Image img2 = new ImageIcon(this.getClass().getResource("/ger_pudge.png")).getImage();
 
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(689, 86, 258, 150);
+		contentPane.add(textArea);
+		
+//		JButton btnNewButton_3 = new JButton("Log Info");
+//		btnNewButton_3.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				Date date = new Date();
+//				for(int i = 0;i<10;i++) {
+//					String sm;
+//				
+//					if(btnNewButton.isEnabled()) {
+//						textArea.setText(btnNewButton.getName()+ " "+ date);
+//					}
+//				}
+//				
+//				
+//			}
+//		});
+//		btnNewButton_3.setBounds(778, 253, 97, 25);
+//		contentPane.add(btnNewButton_3);
+//	
+//	
+		
 		
 		JButton btnNewButton = new JButton("ENG");
+		btnNewButton.setName("ENG");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String lang = "en";
@@ -115,6 +149,7 @@ public class MainFrame extends JFrame {
 				lblRep_2.setText(messages.getString("rep2"));
 				lblRep_1.setText(messages.getString("rep3"));
 				lblReplics.setText(messages.getString("info"));
+				textArea.append(btnNewButton.getName()+ " "+ date +"\n");
 				label.setIcon(new ImageIcon(img));
 				label_2.setVisible(false);
 			}
@@ -123,10 +158,11 @@ public class MainFrame extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("GER");
+		btnNewButton_1.setName("Ger");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-			
+				
 				
 				String lang = "de";
 				String country = "DE";
@@ -137,15 +173,17 @@ public class MainFrame extends JFrame {
 				lblRep_2.setText(messages.getString("rep2"));
 				lblRep_1.setText(messages.getString("rep3"));
 				lblReplics.setText(messages.getString("info"));
-				
+				textArea.append(btnNewButton_1.getName()+ " "+ date +"\n");
 				label.setIcon(new ImageIcon(img2));
 				label_2.setVisible(true);
 			}
 		});
+	
 		btnNewButton_1.setBounds(172, 253, 97, 25);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton_2 = new JButton("RUS");
+		btnNewButton_2.setName("Rus");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String lang = "ru";
@@ -157,7 +195,7 @@ public class MainFrame extends JFrame {
 				lblRep_2.setText(messages.getString("rep2"));
 				lblRep_1.setText(messages.getString("rep3"));
 				lblReplics.setText(messages.getString("info"));
-				
+				textArea.append(btnNewButton_2.getName()+ " "+ date +"\n");
 				label.setIcon(new ImageIcon(img));
 				label_2.setVisible(false);
 			}
@@ -171,13 +209,13 @@ public class MainFrame extends JFrame {
 				System.exit(0);
 			}
 		});
-		btnClose.setBounds(522, 277, 97, 25);
+		btnClose.setBounds(809, 299, 97, 25);
 		contentPane.add(btnClose);
 		
+	
 		
-	
-
-	
+		
+		
 	
 		}
 	}
