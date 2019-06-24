@@ -22,6 +22,9 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import java.awt.Scrollbar;
+import javax.swing.JScrollBar;
 
 public class MainFrame extends JFrame {
 
@@ -107,34 +110,18 @@ public class MainFrame extends JFrame {
 		lblRep_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblRep_2.setBounds(402, 175, 275, 16);
 		contentPane.add(lblRep_2);
-	
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(658, 38, 289, 240);
+		contentPane.add(scrollPane);
+		
+				JTextArea textArea = new JTextArea();
+				textArea.setFont(new Font("Times New Roman", Font.BOLD, 16));
+				scrollPane.setViewportView(textArea);
+		
 
 		Image img2 = new ImageIcon(this.getClass().getResource("/ger_pudge.png")).getImage();
 
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(689, 86, 258, 150);
-		contentPane.add(textArea);
-		
-//		JButton btnNewButton_3 = new JButton("Log Info");
-//		btnNewButton_3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				Date date = new Date();
-//				for(int i = 0;i<10;i++) {
-//					String sm;
-//				
-//					if(btnNewButton.isEnabled()) {
-//						textArea.setText(btnNewButton.getName()+ " "+ date);
-//					}
-//				}
-//				
-//				
-//			}
-//		});
-//		btnNewButton_3.setBounds(778, 253, 97, 25);
-//		contentPane.add(btnNewButton_3);
-//	
-//	
-		
 		
 		JButton btnNewButton = new JButton("ENG");
 		btnNewButton.setName("ENG");
@@ -175,6 +162,7 @@ public class MainFrame extends JFrame {
 				lblReplics.setText(messages.getString("info"));
 				textArea.append(btnNewButton_1.getName()+ " "+ date +"\n");
 				label.setIcon(new ImageIcon(img2));
+				lblPudge.setVisible(false);
 				label_2.setVisible(true);
 			}
 		});
@@ -212,6 +200,7 @@ public class MainFrame extends JFrame {
 		btnClose.setBounds(809, 299, 97, 25);
 		contentPane.add(btnClose);
 		
+	
 	
 		
 		
